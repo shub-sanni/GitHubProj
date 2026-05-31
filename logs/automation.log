@@ -1,0 +1,5 @@
+[15:19:59] [TestNG-PoolService-1] INFO  - Typing username: practice
+[15:19:59] [TestNG-PoolService-1] INFO  - Attempting login with user: practice
+[15:19:59] [TestNG-PoolService-1] INFO  - Typind Passwrd : SuperSecretPassword!
+[15:20:02] [TestNG-PoolService-1] INFO  - Validating homepage title...
+[15:20:02] [TestNG-PoolService-1] INFO  - Homepage validation passed
