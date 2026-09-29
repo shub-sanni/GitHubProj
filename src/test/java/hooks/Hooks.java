@@ -18,7 +18,7 @@ public class Hooks {
 //    }
 	@Before
 	public void startBrowser() {
-		ConfigReader.initProperties();
+		//ConfigReader.initProperties();
 		String browser = ConfigReader.getProperty("browser");
 		boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 		DriverFactory.initDriver(browser, headless);
@@ -32,7 +32,7 @@ public class Hooks {
 		if (scenario.isFailed()) {
 			System.out.println("senario failed-> Taking Screenshoot");
 			ScreenshotUtils.takeScreenshot(DriverFactory.getDriver(), scenario.getName());
-		}
+			}			//obtain the actual WebDriver instance that belongs to the current thread, as Utils needs webdriver
 		DriverFactory.quitDriver();
 	}
 

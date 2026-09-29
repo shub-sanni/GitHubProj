@@ -19,3 +19,9 @@ public Object[][] scenarios(){
 	return super.scenarios();
 }
 }
+/*	Our TestRunner extends AbstractTestNGCucumberTests, 
+	which provides the integration between Cucumber and TestNG.
+	We override the scenarios() method because we want to enable
+	parallel execution of Cucumber scenarios.The @DataProvider(parallel = true) 
+	tells TestNG that the scenarios returned by this DataProvider can be executed in parallel.
+ */
