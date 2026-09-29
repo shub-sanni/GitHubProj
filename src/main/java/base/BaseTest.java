@@ -9,7 +9,7 @@ public class BaseTest {
 	protected WebDriver driver;
 	@BeforeMethod
 	public void setup() {
-				ConfigReader.initProperties();
+			//	ConfigReader.initProperties();
 		String browser = ConfigReader.getProperty("browser");
 		boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 		DriverFactory.initDriver(browser, headless);

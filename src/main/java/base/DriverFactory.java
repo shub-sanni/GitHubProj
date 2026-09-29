@@ -9,17 +9,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 	// private static WebDriver driver;
-	private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+	private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
 	public static void initDriver(String browser, boolean headless) {
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();			//sets up the ChromeDriver executable so Selenium knows what driver binary to use.
 			ChromeOptions chromeOptions = new ChromeOptions();
 			if (headless)
 				chromeOptions.addArguments("--headless=new");
 			chromeOptions.addArguments("--start-maximized");
 			// driver = new ChromeDriver(chromeOptions);
-			tlDriver.set(new ChromeDriver(chromeOptions));	}
+			tlDriver.set(new ChromeDriver(chromeOptions));	}//create and to store new WebDriver instance in ThreadLocal for the current thread
 		else if (browser.equalsIgnoreCase("brave")) {
 		    WebDriverManager.chromedriver().setup();
 		    ChromeOptions options = new ChromeOptions();
@@ -49,7 +49,7 @@ public class DriverFactory {
 			WebDriverManager.firefoxdriver().setup();
 			tlDriver.set(new FirefoxDriver());
 		} else {
-			throw new RuntimeException("browser erroR" + browser);
+			throw new IllegalArgumentException("browser erroR" + browser);
 		}
 		// driver.manage().window().maximize();
 	}
@@ -62,7 +62,7 @@ public class DriverFactory {
 	public static void quitDriver() {
 		if (getDriver() != null) {
 			getDriver().quit();
-			tlDriver.remove();
+			tlDriver.remove();  //clears the driver reference associated with the current thread
 		}
 	}
 	}

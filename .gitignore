@@ -25,3 +25,5 @@ Thumbs.db
 config-prod.properties
 *.env
 secrets.properties
+/.apt_generated/
+/.apt_generated_tests/
